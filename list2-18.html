@@ -15,6 +15,7 @@
         </div>
 
         <script type="text/babel">
+            // 「id=root」のタグのオブジェクトを取得する
             let dom = document.querySelector('#root')
 
             let title = "React page."
@@ -30,6 +31,7 @@
                 return <p style={style}>{msg}</p>
             }
 
+            // 仮想DOMのElementオブジェクトを作成
             let el = (
                 <div>
                     <h4>{title}</h4>
@@ -42,6 +44,9 @@
                 </div>
             )
 
+            // Elementをレンダリングする
+            // 第１引数：仮想DOMのElement
+            // 第２引数：第１引数の仮想Elementをはめ込むタグのDOM
             ReactDOM.render(el, dom)
         </script>
     </body>
