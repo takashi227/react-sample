@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>React</title>
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 class="bg-primary text-white displya-4">React</h1>
+        <div class="container mt-3">
+            <div id="root">wait...</div>
+        </div>
+
+        <script type="text/babel">
+            // 「id=root」のタグのオブジェクトを取得する
+            let dom = document.querySelector('#root')
+
+            let message = "React component page."
+
+            // 関数コンポーネントを定義
+            function Welcome(props) {
+                return <div className={props.alert}>
+                    <p className={props.fontSize}>Hello {props.name}!!</p>
+                </div>
+            }
+
+            // 仮想DOMのElementオブジェクトを作成
+            let el = (
+                <div>
+                    <h5 className="mb-4">{message}</h5>
+                    <Welcome name="Taro" fontSize="h2" alert="alert alert-primary" />
+                    <Welcome name="Hanako" fontSize="h5" alert="alert alert-dark" />
+                </div>
+            )
+
+            // 仮想DOMのElementをレンダリングする
+            // 第１引数：仮想DOMのElement
+            // 第２引数：第１引数の仮想Elementをはめ込むタグのDOM
+            ReactDOM.render(el, dom)
+        </script>
+    </body>
+</html>
